@@ -25,24 +25,25 @@ Partial Class Index
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.DGVProduk = New System.Windows.Forms.DataGridView()
+        Me.btnData = New System.Windows.Forms.Button()
         CType(Me.DGVProduk, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(11, 9)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(16, 14)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 13)
+        Me.Label1.Size = New System.Drawing.Size(98, 20)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Panel Admin"
         '
         'btnLogout
         '
-        Me.btnLogout.Location = New System.Drawing.Point(750, 12)
+        Me.btnLogout.Location = New System.Drawing.Point(1125, 18)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(91, 37)
+        Me.btnLogout.Size = New System.Drawing.Size(136, 57)
         Me.btnLogout.TabIndex = 1
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = True
@@ -51,21 +52,33 @@ Partial Class Index
         '
         Me.DGVProduk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGVProduk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVProduk.Location = New System.Drawing.Point(46, 129)
+        Me.DGVProduk.Location = New System.Drawing.Point(69, 198)
+        Me.DGVProduk.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DGVProduk.Name = "DGVProduk"
         Me.DGVProduk.ReadOnly = True
-        Me.DGVProduk.Size = New System.Drawing.Size(764, 308)
+        Me.DGVProduk.RowHeadersWidth = 62
+        Me.DGVProduk.Size = New System.Drawing.Size(1146, 474)
         Me.DGVProduk.TabIndex = 2
+        '
+        'btnData
+        '
+        Me.btnData.Location = New System.Drawing.Point(69, 115)
+        Me.btnData.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnData.Name = "btnData"
+        Me.btnData.Size = New System.Drawing.Size(136, 57)
+        Me.btnData.TabIndex = 3
+        Me.btnData.Text = "Manage Data"
+        Me.btnData.UseVisualStyleBackColor = True
         '
         'Index
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(853, 470)
+        Me.ClientSize = New System.Drawing.Size(1280, 723)
+        Me.Controls.Add(Me.btnData)
         Me.Controls.Add(Me.DGVProduk)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Index"
         Me.Text = "Menu"
         CType(Me.DGVProduk, System.ComponentModel.ISupportInitialize).EndInit()
@@ -77,4 +90,5 @@ Partial Class Index
     Friend WithEvents Label1 As Label
     Friend WithEvents btnLogout As Button
     Friend WithEvents DGVProduk As DataGridView
+    Friend WithEvents btnData As Button
 End Class
