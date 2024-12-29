@@ -63,4 +63,8 @@ Public Class LoginForm
         Dim registrasiForm As New RegistrasiForm() ' Buat instance form registrasi
         registrasiForm.Show() ' Tampilkan form registrasi
     End Sub
+
+    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
