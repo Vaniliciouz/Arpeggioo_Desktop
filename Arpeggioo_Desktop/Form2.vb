@@ -73,4 +73,8 @@ Public Class RegistrasiForm
         Dim loginForm As New LoginForm()
         loginForm.Show()
     End Sub
+
+    Private Sub RegistrasiForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

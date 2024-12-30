@@ -42,6 +42,16 @@ Public Class Index
             dataTable = JsonConvert.DeserializeObject(Of DataTable)(jsonData)
 
             DGVProduk.DataSource = dataTable
+
+            ' Tambahkan kolom tombol hapus jika belum ada
+            If Not DGVProduk.Columns.Contains("Hapus") Then
+                Dim deleteButton As New DataGridViewButtonColumn()
+                deleteButton.Name = "Hapus"
+                deleteButton.HeaderText = "Action"
+                deleteButton.Text = "Hapus"
+                deleteButton.UseColumnTextForButtonValue = True
+                DGVProduk.Columns.Add(deleteButton)
+            End If
         Catch ex As Exception
             MessageBox.Show("Error fetching JSON data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -62,5 +72,35 @@ Public Class Index
         Me.Hide() ' Sembunyikan form login
         Dim managrProduk As New ManageProduk() ' Buat instance form registrasi
         ManageProduk.Show() ' Tampilkan form registrasi
+    End Sub
+
+    Private Async Function DeleteProdukAsync(id As Integer) As Task
+        Dim deleteUrl As String = $"http://localhost/arpeggio_web/admin/api_get_produk.php?id={id}"
+
+        Try
+            Dim response As HttpResponseMessage = Await client.DeleteAsync(deleteUrl)
+            If response.IsSuccessStatusCode Then
+                MessageBox.Show("Produk berhasil dihapus.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Await LoadDataAsync() ' Perbarui data setelah penghapusan
+            Else
+                MessageBox.Show("Gagal menghapus produk.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Terjadi kesalahan koneksi: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Function
+
+    ' Event handler untuk klik tombol hapus di DataGridView
+    Private Async Sub DGVProduk_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVProduk.CellContentClick
+        If e.ColumnIndex = DGVProduk.Columns("Hapus").Index AndAlso e.RowIndex >= 0 Then
+            Dim selectedRow As DataGridViewRow = DGVProduk.Rows(e.RowIndex)
+            Dim id As Integer = Convert.ToInt32(selectedRow.Cells("id").Value)
+
+            Dim confirmResult = MessageBox.Show($"Apakah Anda yakin ingin menghapus produk dengan ID {id}?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            If confirmResult = DialogResult.Yes Then
+                Await DeleteProdukAsync(id)
+            End If
+        End If
     End Sub
 End Class

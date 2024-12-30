@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.35229.62
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Arpeggioo_Desktop", "Arpeggioo_Desktop\Arpeggioo_Desktop.vbproj", "{C0711A5D-3D0B-40B6-B974-ABCC6189E654}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "integrasi", "..\..\UTS\integrasi_vb\integrasi\integrasi.vbproj", "{4614746B-0FDA-46D4-8562-1A664091EAD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C0711A5D-3D0B-40B6-B974-ABCC6189E654}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0711A5D-3D0B-40B6-B974-ABCC6189E654}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0711A5D-3D0B-40B6-B974-ABCC6189E654}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4614746B-0FDA-46D4-8562-1A664091EAD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4614746B-0FDA-46D4-8562-1A664091EAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4614746B-0FDA-46D4-8562-1A664091EAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4614746B-0FDA-46D4-8562-1A664091EAD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,13 +30,25 @@ Public Class LoginForm
             ' Tampilkan form utama admin
             Dim adminForm As New Index() ' Gantilah dengan nama form utama admin Anda
             adminForm.Show()
+
+            ' Akses produk dari respons JSON setelah login
+            If response("produk") IsNot Nothing Then
+                Dim produk As JObject = response("produk") ' Ambil data produk dari respons JSON
+                Dim id As Integer = produk("id")
+                Dim nama As String = produk("nama").ToString()
+                Dim harga As String = produk("harga").ToString()
+                Dim deskripsi As String = produk("deskripsi").ToString()
+                Dim imageUrl As String = produk("image_url").ToString()
+                Dim stok As Integer = produk("stok")
+
+                ' Menampilkan informasi produk
+                MessageBox.Show("Produk: " & nama & vbCrLf & "Harga: " & harga & vbCrLf & "Stok: " & stok)
+            End If
         Else
             ' Tampilkan pesan error jika login gagal
             MessageBox.Show("Login Failed: " & response("message").ToString())
         End If
     End Sub
-
-
 
     ' Fungsi untuk mengirim permintaan login ke API
     Private Async Function SendLoginRequest(username As String, password As String) As Task(Of JObject)
